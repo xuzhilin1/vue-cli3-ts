@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/* reset */
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:normal;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+img {border: 0;vertical-align: middle}
+@font-face {font-family: "NotoSansHans";
+  src: url('http://s2.hanmaker.com/static/font/NotoSansHans-Regular.otf?t=1548313286117'); /* IE9 */
+}
+
+body,textarea,input,button,select,keygen,legend{font:14px/1.428571429 NotoSansHans,Arial,'SimSun','Avenir', Helvetica, Arial, sans-serif;color:#333;outline:0; -webkit-text-size-adjust: 100%}
+html,body{width: 100%;height:100%;overflow: hidden;}
+#app{
+  overflow: hidden;
+}
+/*
+  部分自定义默认样式
+  设置所有元素box-sizing为border-box
+  fl:       向左浮动
+  fr:       向右浮动
+  tran:     通用动画
+*/
+*,*:after,*:before{box-sizing: border-box;}
+.fl{float: left;}
+.fr{float: right;}
+.tran{transition:all .2s ease;}
+/*
+	Name:			  style_clearfix+
+	Example:		class="clearfix|cl"
+	Explain:		Clearfix（简写cl）避免因子元素浮动而导致的父元素高度缺失能问题
+*/
+.cl:after,.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}.cl,.clearfix{zoom:1}.clearit {clear: both;height: 0;font-size: 0;overflow: hidden}
+// 禁用样式
+.disabled{pointer-events: none;cursor: default;}
+
+::-webkit-scrollbar-track-piece { //滚动条凹槽的颜色，还可以设置边框属性
+  background-color:transparent;
+}
+::-webkit-scrollbar {//滚动条的宽度
+  width:6px;
+  height:6px;
+}
+::-webkit-scrollbar-thumb {//滚动条的设置
+  background-color:rgba(136, 139, 143, 0.6);
+  background-clip:padding-box;
+  min-height:28px;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color:rgba(136, 139, 143, 0.6);
+}
+.el-message{
+  top:55px!important;
+}
