@@ -13,39 +13,39 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component } from "vue-property-decorator";
-    import { State, Getter, Action, Mutation, namespace } from 'vuex-class'
-    interface FormObject {
-      username: string,
-      password: string
+import { Vue, Component } from 'vue-property-decorator';
+import { State, Getter, Action, Mutation, namespace } from 'vuex-class';
+interface FormObject {
+  username: string;
+  password: string;
+}
+const someModule = namespace('chat');
+// const namespace: string = 'chat'
+@Component
+export default class Login extends Vue {
+  @State('version') public version;
+  @State((state) => state.chat) public chat: any;
+  @Getter('user1') public user1;
+  private ruleForm: FormObject = {
+     username: '',
+     password: '',
+  };
+  // @someModule.Getter('getUser') getUser
+  public mouted() {
+    // this.isShow('2222')
+  }
+  public submitForm(): void {
+    // console.log(this.ruleForm, this.user1, this.chat.version);
+    if (!this.ruleForm.username) {
+      this.$message.error('请输入用户名');
+      return;
+    } else if (!this.ruleForm.password) {
+      this.$message.error('请输入密码');
+      return;
     }
-    const someModule = namespace('chat')
-    //const namespace: string = 'chat'
-    @Component
-    export default class Login extends Vue{
-      private ruleForm: FormObject = {
-         username: '',
-         password: ''
-      }
-      @State('version') version;
-      @State(state => state.chat) chat: string;
-      @Getter('user1') user1;
-      //@someModule.Getter('getUser') getUser
-      mouted() {
-        //this.isShow('2222')
-      }
-      submitForm():void {
-        console.log(this.ruleForm,this.user1,this.chat.version);
-        if (!this.ruleForm.username) {
-          this.$message.error('请输入用户名');
-          return;
-        } else if (!this.ruleForm.password) {
-          this.$message.error('请输入密码');
-          return;
-        }
-        //this.$store.dispatch('login',this.ruleForm) // this.store.dispath('login');
-      }
-    }
+    // this.$store.dispatch('login',this.ruleForm) // this.store.dispath('login');
+  }
+}
 </script>
 
 <style scoped>
