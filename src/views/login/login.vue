@@ -8,34 +8,38 @@
         </el-form-item>
         <el-form-item>
             <el-button type="primary" @click="submitForm">提交</el-button>
+            <el-button type="primary" @click="handleClick">test</el-button>
         </el-form-item>
     </el-form>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
+import { Vue, Component, Watch} from 'vue-property-decorator';
 import { State, Getter, Action, Mutation, namespace } from 'vuex-class';
 interface FormObject {
   username: string;
   password: string;
 }
-const someModule = namespace('chat');
-// const namespace: string = 'chat'
+// const someModule = namespace('chat');
+
+// const namespace: string = 'chat';
 @Component
 export default class Login extends Vue {
   @State('version') public version;
-  @State((state) => state.chat) public chat: any;
+ // @State((state) => state.chat) public chat: any;
   @Getter('user1') public user1;
+  @Getter('food') public food;
+  @Action('login') public login;
   private ruleForm: FormObject = {
      username: '',
      password: '',
   };
   // @someModule.Getter('getUser') getUser
-  public mouted() {
-    // this.isShow('2222')
+  public mounted() {
+   // console.log(this.user1,this.food,1);
   }
   public submitForm(): void {
-    // console.log(this.ruleForm, this.user1, this.chat.version);
+   // console.log(this.user1,this.food,2);
     if (!this.ruleForm.username) {
       this.$message.error('请输入用户名');
       return;
@@ -45,6 +49,14 @@ export default class Login extends Vue {
     }
     // this.$store.dispatch('login',this.ruleForm) // this.store.dispath('login');
   }
+  public handleClick(): void {
+    this.login('hahah');
+  }
+
+  @Watch('user1')
+    public changeVal(newVal: string, oldVal: string): void {
+     // console.log('login发生改变');
+    }
 }
 </script>
 

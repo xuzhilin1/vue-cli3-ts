@@ -4,3 +4,7 @@ export interface GlobalState {
   token: string;
   user: string;
 }
+
+export interface GlobalFood {
+  food: string;
+}
